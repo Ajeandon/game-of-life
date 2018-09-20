@@ -34,8 +34,6 @@ function update(){
 function startEvent(e){
     if(e.keyCode == 32 || e.charCode == "32")
 	start = start ? false : true;
-
-    console.log(start);
 }
 
 document.addEventListener('keypress', startEvent);

@@ -2,7 +2,8 @@ let Grid = function(width, height, scl){
     this.width = width;
     this.height = height;
     this.scl = scl;
-
+    this.count = 0;
+    
     this.grid = [];
     this.initGrid();
 }
@@ -39,12 +40,18 @@ Grid.prototype.draw = function(ctx){
 	    ctx.fill();
 	}
     }
+
+    ctx.fillStyle = '#000';
+    ctx.font = "20px Sans-serif";
+    ctx.fillText("Start / Stop : space bar - GEN : " + this.count ,30,30);
+    ctx.fill();
 }
 
 /**
  * Calcul la prochaine génération
  */
 Grid.prototype.gen = function(){
+    this.count++;
     let gridcopy = JSON.parse(JSON.stringify(this.grid));
 
     for(let i = 0; i < this.grid.length; i++){
@@ -219,7 +226,7 @@ Grid.prototype.gen = function(){
 
 	    if(this.grid[i][j] == 0 && sum == 3 && check)
 		gridcopy[i][j] = 1;
-	    else if(this.grid[i][j] == 1 && (sum < 2 || sm > 3) && check)
+	    else if(this.grid[i][j] == 1 && (sum < 2 || sum > 3) && check)
 		gridcopy[i][j] = 0;
 	}	
     }
