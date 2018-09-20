@@ -161,20 +161,20 @@ Grid.prototype.gen = function(){
 		check = true;
 		
 	    }else if(i == 0 && j == this.grid[i].length - 1){ // angle haut droit
-
+		
 		// ligne du haut
-		sum += this.grid[i - 1][j];
-		sum += this.grid[i - 1][j - 1];
-		sum += this.grid[i - 1][0];
+		sum += this.grid[this.grid.length - 1][j];
+		sum += this.grid[this.grid.length - 1][j - 1];
+		sum += this.grid[this.grid.length - 1][0];
 		
 		// ligne du milieu
 		sum += this.grid[i][j - 1];
 		sum += this.grid[i][0];
 		
 		// ligne du bas
-		sum += this.grid[0][j];
-		sum += this.grid[0][j - 1];
-		sum += this.grid[0][0];
+		sum += this.grid[i + 1][j];
+		sum += this.grid[i + 1][j - 1];
+		sum += this.grid[i + 1][0];
 
 		check = true;
 		
@@ -218,11 +218,11 @@ Grid.prototype.gen = function(){
 	    
 
 	    if(this.grid[i][j] == 0 && sum == 3 && check)
-		this.gridcopy[i][j] = 1;
+		gridcopy[i][j] = 1;
 	    else if(this.grid[i][j] == 1 && (sum < 2 || sm > 3) && check)
-		this.gridcopy[i][j] = 0;
+		gridcopy[i][j] = 0;
 	}	
     }
 
-    this.grid = this.gridcopy;
+    this.grid = gridcopy;
 }
