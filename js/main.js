@@ -45,5 +45,6 @@ function cellClickEvent(e){
       y: e.clientY - rect.top
     };
 
-    grid.grid[Math.floor(pos.y / grid.scl)][Math.floor(pos.x / grid.scl)] = grid.grid[Math.floor(pos.y / grid.scl)][Math.floor(pos.x / grid.scl)] == 1 ? 0 : 1; 
+    grid.grid[Math.floor(pos.y / grid.scl)][Math.floor(pos.x / grid.scl)] = grid.grid[Math.floor(pos.y / grid.scl)][Math.floor(pos.x / grid.scl)] == 1 ? 0 : 1;
+    update();	
 }
